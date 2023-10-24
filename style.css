@@ -1,0 +1,70 @@
+/* Contents of styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e9ebee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0 0 20px;
+    color: #1877f2;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-options {
+    margin-top: 10px;
+}
+
+.form-option {
+    display: block;
+    margin: 10px 0;
+}
+
+.form-submit {
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #1558c1;
+}
+
+.additional-info {
+    display: none;
+}
+
+/* Style the input fields and labels to match Facebook's design */
+input[type="radio"], label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style the textarea to match Facebook's design */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
