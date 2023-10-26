@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: inherit;
             background-color: #f0f2f5;
             margin: 0;
             padding: 0;
@@ -35,19 +35,25 @@
 
         .user-post-container {
             display: flex;
-            padding: 10px;
-			
+            align-items: center; /* Center items vertically */
+            padding: 16px;
         }
 
         .profile-picture {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/640px-Facebook_f_logo_%282021%29.svg.png');
             background-size: cover;
+            margin-right: 10px; 
 			
         }
-		
+
+        .vertical-line {
+            border-left: 4px solid #ccc;
+            height: 450px;
+            margin-Center: 20px;
+        }
 
         .post-content {
             flex: 1;
@@ -67,10 +73,10 @@
             font-size: 14px;
         }
 
-        .description {
+      .description {
             margin: 20px 0;
             color: #333;
-            font-size: 18px;
+            font-size: 16px; /* Slightly reduce font size for description */
             font-weight: 500;
         }
 
@@ -91,22 +97,57 @@
                 </div>
                 <div class="col-6 text-right">
                     <p style="color: #3578e5; padding-top: 23px; margin-bottom: 0; font-weight: 600; font-size: 15px;">
-                        <i style="font-size: 16px;" class="fa-solid fa-envelope"></i> Support Inbox
+                        <i style="font-size: 16px;" class="fas fa-envelope"></i> Support Inbox
                     </p>
                 </div>
-				
+            </div>
         </div>
     </section>
+	
     <div class="facebook-container">
+	 <div class="profile-picture"></div>
         <div class="user-post-container">
-            <div class="profile-picture"></div>
+                  <div class="vertical-line"></div>
             <div class="post-content">
-                <div class="user-details">Facebook</div>
-                <div class="post-time">Just now</div>
-                <div class="description">Appeal Submitted Successfully</div>
+                <div class="post-time" id="post-time"></div>
+                <div class="user-details">Appeal Submitted Successfully</div>
+                <div class="description">Thank you for taking the time to appeal a decision related to our Advertising Standards. Your input is important in helping us maintain a safe and inclusive environment on our platform. We will notify you once your appeal has been reviewed.</div>
                 <img class="post-image" src="https://assets-global.website-files.com/614b3e8cafbd9789234c277e/62cc3aa106c486a2f113da5e_Facebook%20Ad%20Tool-p-500.png" alt="Image Description">
             </div>
         </div>
-    </div>
+		    </div>
+
+    <script>
+        // Function to display the current date and time in the desired format
+        function displayCurrentTime() {
+            const postTimeElement = document.getElementById("post-time");
+            const currentTime = new Date();
+
+            const daysOfWeek = [
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            // Get the components of the date and time
+            const dayOfWeek = daysOfWeek[currentTime.getDay()];
+            const day = currentTime.getDate();
+            const month = months[currentTime.getMonth()];
+            const year = currentTime.getFullYear();
+            const hours = currentTime.getHours().toString().padStart(2, '0');
+            const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+
+            // Create the formatted time string
+            const formattedTime = `${dayOfWeek}, ${day} ${month} ${year} at ${hours}:${minutes}`;
+
+            // Update the element with the formatted time
+            postTimeElement.textContent = formattedTime;
+        }
+
+        // Call the displayCurrentTime function when the page loads
+        displayCurrentTime();
+    </script>
 </body>
 </html>
